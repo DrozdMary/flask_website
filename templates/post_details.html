@@ -1,0 +1,60 @@
+{%extends 'base.html'%}
+
+{% block title%}
+{{article.title}}
+{%endblock%}
+
+{%block body%}
+<style>
+  #all_text_container {
+    font-size: larger;
+  }
+
+  #date {
+    color: #2d2f35;
+
+  }
+
+  .center_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sub_button {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1E222E;
+    border-radius: 10px;
+    color: white;
+    width: 350px;
+    height: 40px;
+    font-family: "Montserrat";
+    src: url("fonts/montserrat_regular.ttf");
+    font-size: larger;
+  }
+
+  .sub_button a {
+    text-decoration: none;
+    color: white;
+  }
+</style>
+<h1>
+  {{article.title}}
+</h1>
+
+
+<span id="all_text_container">
+  {{article.text|safe }}
+</span>
+<br>
+<p id="date"> Дата публикации: {{article.date.date()}}</p>
+<div class="center_container">
+  <div class="sub_button"><a href="/posts/{{article.id}}/delete">Удалить статью</a></div>
+
+  <div class="sub_button"><a href="/posts/{{article.id}}/edit">Изменить содержимое статьи</a></div>
+</div>
+
+{% endblock%}

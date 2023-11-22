@@ -1,0 +1,67 @@
+{%extends 'base.html'%}
+
+{% block title%}
+Статьи
+{%endblock%}
+
+{%block body%}
+<style>
+    #intro {
+        color: #272a35;
+        font-size: larger;
+    }
+
+    .center_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sub_button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #1E222E;
+        border-radius: 10px;
+        color: white;
+        width: 150px;
+        height: 40px;
+        font-family: "Montserrat";
+        src: url("fonts/montserrat_regular.ttf");
+        font-size: larger;
+    }
+
+    .sub_button a {
+        text-decoration: none;
+        color: white;
+    }
+
+    #devider {
+        color: #AB958F;
+        width: 50%;
+
+    }
+</style>
+
+
+<h1> Все статьи </h1>
+<br>
+<div>
+    {%if articles|length>0%}
+    {%for el in articles %}
+    <h2> {{el.title }}</h2>
+    <p id="intro">{{el.intro}}</p>
+    <p>Дата публикации: <b> {{el.date.date()}}</b></p>
+    <div class="center_container">
+        <div class="sub_button"><a href="/posts/{{el.id}}">Детальнее</a></div>
+    </div>
+
+    <br><br>
+    <hr id="devider">
+
+    {% endfor %}
+    {%else%}
+    <p> У вас еще нет статей</p>
+    {%endif%}
+</div>
+{% endblock%}

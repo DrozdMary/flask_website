@@ -1,0 +1,59 @@
+{%extends 'base.html'%}
+
+{% block title%}
+Создание статей
+{%endblock%}
+
+{%block body%}
+<style>
+    input[type=text],
+    textarea {
+        width: 50%;
+        padding: 12px;
+        margin-top: 15px;
+        box-sizing: border-box;
+        border: 4px solid #AB958F;
+        border-radius: 10px;
+
+    }
+
+    input[type=text]:focus {
+
+        border: 4px solid #1E222E;
+
+
+    }
+
+    textarea:focus {
+
+        border: 4px solid #1E222E;
+
+
+    }
+
+    .sub_button {
+        background-color: #1E222E;
+        border-radius: 10px;
+        color: white;
+        width: 200px;
+        height: 50px;
+        font-family: "Montserrat";
+        src: url("fonts/montserrat_regular.ttf");
+        font-size: larger;
+
+
+    }
+</style>
+
+<h1> Формы для записей</h1>
+<form action="/create_article" method="post">
+    <label>Введите название статьи </label><br>
+    <input type="text" name="title" id="'title"><br><br>
+    <label>Введите анонс </label><br>
+    <textarea name="intro" id="intro "></textarea><br><br>
+    <label>Введите основной текст </label><br>
+    <textarea  name="text" id="text "></textarea><br><br>
+    <input class="sub_button" type="submit" value="Отправить">
+</form>
+
+{% endblock%}
